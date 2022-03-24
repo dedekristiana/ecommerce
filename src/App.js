@@ -10,6 +10,7 @@ import products from "./services/products";
 import { ShoppingOutlined } from "@ant-design/icons";
 import { UserOutlined } from "@ant-design/icons";
 import { SearchOutlined } from "@ant-design/icons";
+import "./index.css";
 
 import NumberFormat from "react-number-format";
 
@@ -53,7 +54,7 @@ function App() {
       </div>
       <div className="mt-16 flex gap-10">
         <div className="w-64">
-          <div className=" leading-3">
+          <div className=" w-64 leading-3">
             <h2 className="font-semibold text-lg">Categories</h2>
             <Categories menu="Bolu" stok="320" />
             <Categories menu="Mie" stok="112" />
