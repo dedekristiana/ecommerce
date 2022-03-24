@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./index.css";
 import HeaderSatu from "./components/HeaderSatu";
 import HeaderDua from "./components/HeaderDua";
 import HeaderTiga from "./components/HeaderTiga";
@@ -7,12 +8,9 @@ import Categories from "./components/Categories";
 import OrderBy from "./components/OrderBy";
 import Price from "./components/Price";
 import products from "./services/products";
-import { ShoppingOutlined } from "@ant-design/icons";
-import { UserOutlined } from "@ant-design/icons";
-import { SearchOutlined } from "@ant-design/icons";
-import "./index.css";
-
-import NumberFormat from "react-number-format";
+import ProductCard from "./components/ProductCard";
+import Footer from "./components/Footer";
+import { DownOutlined } from "@ant-design/icons";
 
 function App() {
   return (
@@ -21,24 +19,7 @@ function App() {
         <HeaderSatu />
       </div>
       <div className="flex justify-between mt-10 p-2">
-        <div className="font-bold text-3xl">
-          <h1>
-            LOKAL-<span className="text-green-400">IN</span>
-          </h1>
-        </div>
-        <div className="flex items-center">
-          <input type="text" className="w-96 h-8 bg-gray-100 rounded-lg p-2" />
-          <SearchOutlined className="rotate-90 -ml-6" />
-        </div>
-        <div className="flex gap-5">
-          <UserOutlined className="text-[23px] self-center" />
-          <div className="relative self-center">
-            <ShoppingOutlined className="text-[25px]" />
-            <div className="absolute bg-red-500 -bottom-2 -left-1 text-center text-xs text-white w-4 h-4 rounded-3xl">
-              4
-            </div>
-          </div>
-        </div>
+        <HeaderDua />
       </div>
       <div className="bg-gray-100 mt-8 p-2">
         <ul className="flex justify-around">
@@ -52,9 +33,9 @@ function App() {
           <HeaderTiga title="Pharmacy" />
         </ul>
       </div>
-      <div className="mt-16 flex gap-10">
-        <div className="w-64">
-          <div className=" w-64 leading-3">
+      <div className="mt-16 flex gap-10 mb-48">
+        <div className="">
+          <div className="w-64 ">
             <h2 className="font-semibold text-lg">Categories</h2>
             <Categories menu="Bolu" stok="320" />
             <Categories menu="Mie" stok="112" />
@@ -75,50 +56,50 @@ function App() {
         </div>
         <div className="flex flex-wrap gap-10">
           {products.map((item, index) => {
-            const priceAfterDiscount =
-              item.originalPrice -
-              (item.originalPrice * item.discountPercent) / 100;
-            return (
-              <div className="border-2 rounded-lg pb-2">
-                <img src={`/${item.image}`} className="p-5 " />
-                <div className="text-left pl-5 mb-2">
-                  <h3 className="font-semibold text-lg">{item.nama}</h3>
-                  <p>{item.description}</p>
-                </div>
-                <div className="flex justify-between px-5">
-                  <div className="flex flex-col">
-                    <span>
-                      <NumberFormat
-                        thousandSeparator={"."}
-                        decimalSeparator={","}
-                        prefix={"Rp "}
-                        value={priceAfterDiscount}
-                        displayType={"text"}
-                      />
-                    </span>
-                    {item.discountPercent > 0 && (
-                      <span className="line-through text-xs">
-                        {item.originalPrice}
-                      </span>
-                    )}
-                  </div>
-                  <div className="">
-                    <button className="bg-green-600 p-2 rounded-lg font-semibold text-white">
-                      Buy Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
+            return <ProductCard item={item} />;
           })}
-          <div className=" w-full h-10">
-            <div className="flex justify-center">
-              <button className="bg-green-400 h-10 px-2 text-center font-semibold text-white">
-                Show More Product
-              </button>
+          <div className="w-full flex justify-center">
+            <div className=" flex justify-center bg-green-400 rounded-lg h-10 px-2 items-center w-64 ">
+              <p className="  font-semibold text-white">Show More Product</p>
+              <DownOutlined className="text-xs text-white ml-1.5" />
             </div>
           </div>
         </div>
+      </div>
+      {/* card footer */}
+      <div className="flex justify-between p-10 rounded-lg border-2 ">
+        <div className="">
+          <h2 className="text-lg font-semibold mb-5 ">Get in touch</h2>
+          <Footer page="About Us" />
+          <Footer page="Careers" />
+          <Footer page="Press Releases" />
+          <Footer page="Blog" />
+        </div>
+        <div className="">
+          <h2 className="text-lg font-semibold mb-5 ">Connections</h2>
+          <Footer page="Facebook" />
+          <Footer page="Twitter" />
+          <Footer page="Instagram" />
+          <Footer page="Youtube" />
+          <Footer page="Linkedin" />
+        </div>
+        <div className="">
+          <h2 className="text-lg font-semibold mb-5 ">Earning</h2>
+          <Footer page="Become an Affiliate" />
+          <Footer page="Advertise Your Product" />
+          <Footer page="Sell on Market" />
+        </div>
+        <div className="">
+          <h2 className="text-lg font-semibold mb-5 ">Account</h2>
+          <Footer page="Your account" />
+          <Footer page="Return Centre" />
+          <Footer page="100% purchase protection" />
+          <Footer page="Chat with us" />
+          <Footer page="Help" />
+        </div>
+      </div>
+      <div className="mt-10 ">
+        <p>Copyright © 2022 dksa.id</p>
       </div>
     </div>
   );
