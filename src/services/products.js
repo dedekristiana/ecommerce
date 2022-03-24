@@ -5,7 +5,7 @@ const products = [
     description: "di susun dengan penuh kenangan",
     originalPrice: 40000,
     discountPercent: 10,
-    image: "bolu.png",
+    image: "Bolu.png",
   },
   {
     id: 2,
