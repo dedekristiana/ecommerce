@@ -110,7 +110,7 @@ function App() {
               </div>
             );
           })}
-          <div className="bg-red-400 w-full h-10">
+          <div className=" w-full h-10">
             <div className="flex justify-center">
               <button className="bg-green-400 h-10 px-2 text-center font-semibold text-white">
                 Show More Product
