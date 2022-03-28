@@ -5,7 +5,7 @@ function HeaderTiga(props) {
     <>
       <li className="flex items-center font-semibold">
         {props.title}
-        <DownOutlined className="text-xs p-1" />
+        <DownOutlined className="text-xs p-1 text-green-500" />
       </li>
     </>
   );
