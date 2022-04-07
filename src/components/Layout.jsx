@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 const Layout = (Props) => {
   return (
-    <div className="container mx-auto mb-96">
+    <div className="container mx-auto">
       {/* header satu */}
       <div className="flex justify-between  p-2">
         <HeaderSatu />

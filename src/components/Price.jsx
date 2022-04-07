@@ -6,11 +6,11 @@ function Price() {
       <div className="flex gap-10 mt-4">
         <div className="flex flex-col">
           <span>Min</span>
-          <input type="text" className="bg-gray-100 h-8 w-16 rounded-lg" />
+          <input type="text" className="bg-gray-100 h-8 w-16 p-2 rounded-lg" />
         </div>
         <div className="flex flex-col">
           <span>Max</span>
-          <input type="text" className="bg-gray-100 h-8 w-16 rounded-lg" />
+          <input type="text" className="bg-gray-100 h-8 w-16 p-2 rounded-lg" />
         </div>
       </div>
       <div className="mt-4 flex gap-10">
